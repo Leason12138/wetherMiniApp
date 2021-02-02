@@ -1,0 +1,30 @@
+<view class="now-wether">
+  <view>
+    <van-icon name="location" /> <text class="title">{{nowdata.city}}</text>
+  </view>
+  <view>
+    <text class="temp">
+      {{nowdata.tem}}°
+    </text>
+    <text> {{nowdata.wea}}</text>
+  </view>
+  <view>
+    <text>{{nowdata.win}}</text>
+    <text>{{nowdata.win_speed}} </text>
+    <text>{{nowdata.humidity}} </text>
+    <text>{{nowdata.pressure}} </text>
+  </view>
+  <!-- 24小时 -->
+  <view>=--=-=-=-=-=-=-=-=-=-</view>
+
+  <view>
+
+    <view wx:for="{{sevendata.data}}">
+      <view wx:for="{{item.hours}}">{{item.day}}</view>
+    </view>
+  </view>
+  <view>=--=-=-=-=-=-=-=-=-=-</view>
+  <!-- 7天预报 -->
+  <AfterWeather sevendata='{{sevendata}}'></AfterWeather>
+
+</view>

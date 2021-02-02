@@ -1,0 +1,3 @@
+<!--Components/AfterWeather/AfterWeather.wxml-->
+<text>Components/AfterWeather/AfterWeather.wxml</text>
+<view>{{sevendata.data[0]}}</view>

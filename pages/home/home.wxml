@@ -1,0 +1,10 @@
+<view class="home">
+
+
+    <NowWether sevendata='{{SevenDayDate[1].data}}'  nowdata='{{NowWeatherData[1].data}}'>
+      
+    </NowWether>
+ 
+
+  
+</view>
