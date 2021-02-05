@@ -1,30 +1,67 @@
 <view class="now-wether">
-  <view>
-    <van-icon name="location" /> <text class="title">{{nowdata.city}}</text>
+  <view bindtap="intoseachpage">
+    <van-icon name="search" />
+    <van-icon name="location" />
+    <text class="title">{{nowdata.city}}</text>
   </view>
   <view>
-    <text class="temp">
-      {{nowdata.tem}}°
-    </text>
-    <text> {{nowdata.wea}}</text>
+    <text class="temp">{{nowdata.tem}}°</text>
+    <text>{{nowdata.wea}}</text>
   </view>
   <view>
+    <text>空气质量：{{nowdata.air_level}}</text>
     <text>{{nowdata.win}}</text>
-    <text>{{nowdata.win_speed}} </text>
-    <text>{{nowdata.humidity}} </text>
-    <text>{{nowdata.pressure}} </text>
+    <text>{{nowdata.win_speed}}</text>
+    <text>{{nowdata.humidity}}</text>
+    <text>{{nowdata.pressure}}</text>
   </view>
   <!-- 24小时 -->
   <view>=--=-=-=-=-=-=-=-=-=-</view>
-
   <view>
-
-    <view wx:for="{{sevendata.data}}">
-      <view wx:for="{{item.hours}}">{{item.day}}</view>
+    <view>24小时</view>
+    <view wx:for="{{sevendata.data[0].hours}}" wx:key="index">
+      {{item.day}}
+    {{item.tem}}
+    {{item.wea}}
     </view>
   </view>
   <view>=--=-=-=-=-=-=-=-=-=-</view>
   <!-- 7天预报 -->
   <AfterWeather sevendata='{{sevendata}}'></AfterWeather>
-
+  <view>
+    <view>生活指数</view>
+    <view >
+      =-=-=-=-=-=-
+    </view>
+    <view>
+      <text>{{sevendata.data[0].index[0].title}}</text>
+      <text>{{sevendata.data[0].index[0].level}}</text>
+      <text>{{sevendata.data[0].index[0].desc}}</text>
+    </view>
+    <view>
+      <text>{{sevendata.data[0].index[1].title}}</text>
+      <text>{{sevendata.data[0].index[1].level}}</text>
+      <text>{{sevendata.data[0].index[1].desc}}</text>
+    </view>
+    <view>
+      <text>{{sevendata.data[0].index[2].title}}</text>
+      <text>{{sevendata.data[0].index[2].level}}</text>
+      <text>{{sevendata.data[0].index[2].desc}}</text>
+    </view>
+    <view>
+      <text>{{sevendata.data[0].index[3].title}}</text>
+      <text>{{sevendata.data[0].index[3].level}}</text>
+      <text>{{sevendata.data[0].index[3].desc}}</text>
+    </view>
+    <view>
+      <text>{{sevendata.data[0].index[4].title}}</text>
+      <text>{{sevendata.data[0].index[4].level}}</text>
+      <text>{{sevendata.data[0].index[4].desc}}</text>
+    </view>
+    <view>
+      <text>{{sevendata.data[0].index[5].title}}</text>
+      <text>{{sevendata.data[0].index[5].level}}</text>
+      <text>{{sevendata.data[0].index[5].desc}}</text>
+    </view>
+  </view>
 </view>

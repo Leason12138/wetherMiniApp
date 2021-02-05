@@ -1,4 +1,4 @@
-// pages/addplase/addplase.js
+// pages/searchend/searchend.js
 Page({
 
   /**

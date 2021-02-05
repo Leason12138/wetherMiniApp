@@ -1,3 +1,11 @@
-<!--Components/AfterWeather/AfterWeather.wxml-->
-<text>Components/AfterWeather/AfterWeather.wxml</text>
-<view>{{sevendata.data[0]}}</view>
+<view>
+    <view>7dat prosee</view>
+<view wx:for="{{sevendata.data}}">
+    {{item.day}}
+    {{item.wea}}
+    {{item.tem1}}
+    {{item.tem2}}
+    {{item.win}}
+    {{item.win_speed}}
+</view>
+    </view>

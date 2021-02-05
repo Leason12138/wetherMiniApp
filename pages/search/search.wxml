@@ -1,0 +1,11 @@
+<view class="search">
+  <van-search
+  model:value="{{ value }}"
+  placeholder="想要查找的市区天气"
+  use-action-slot
+  bind:search="onClick"
+>
+  <view slot="action" bind:tap="onClick">搜索</view>
+</van-search>
+  <NowWether sevendata='{{SearchSevenData.data}}' nowdata='{{SearchNowData.data}}'></NowWether>
+</view>
