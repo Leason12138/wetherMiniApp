@@ -1,4 +1,5 @@
 // pages/search/search.js
+const app = getApp();
 Page({
 
   /**
@@ -6,8 +7,7 @@ Page({
    */
   data: {
     value: '',
-    SearchNowData: {},
-    SearchSevenData: {},
+
 
   },
   onChange(e) {
@@ -16,39 +16,14 @@ Page({
     });
   },
 
-  getSearchSevenData(adr) {
-    let add = adr
-    if (/市$/g.test(add)) {
-      add = add.slice(0, 2)
-    }
-    let that = this
-    return wx.request({
-      url: `https://tianqiapi.com/api?version=v1&appid=55366145&appsecret=oy2iZT1d&city=${add}`,
-      success: function (res) {
-        that.setData({
-          SearchSevenData: res
-        })
-      }
-    })
-  },
-  getSearchNowData(adr) {
-    let add = adr
-    if (/市$/g.test(add)) {
-      add = add.slice(0, 2)
-    }
-    let that = this
-    return wx.request({
-      url: `https://tianqiapi.com/api?version=v6&appid=55366145&appsecret=oy2iZT1d&city=${add}`,
-      success: function (res) {
-        that.setData({
-          SearchNowData: res
-        })
-      }
-    })
-  },
+
   onClick() {
-    this.getSearchNowData(this.data.value);
-    this.getSearchSevenData(this.data.value);
+    app.globalData.add = this.data.value
+    console.log(app.globalData.add);
+      wx.navigateTo({
+      url: '../searchend/searchend',
+    })
+
   },
 
   /**

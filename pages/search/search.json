@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "van-search": "@vant/weapp/search/index",
-    "NowWether": "../../Components/NowWether/NowWether"
+    "van-search": "@vant/weapp/search/index"
   }
 }

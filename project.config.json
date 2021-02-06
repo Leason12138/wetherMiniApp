@@ -1,4 +1,4 @@
-{
+{"cloudfunctionRoot":"cloud",
   "description": "项目配置文件",
   "packOptions": {
     "ignore": []
@@ -68,6 +68,12 @@
         {
           "name": "pages/search/search",
           "pathName": "pages/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/my",
+          "pathName": "pages/my/my",
           "scene": null
         }
       ]

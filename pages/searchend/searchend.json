@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "NowWether": "../../Components/NowWether/NowWether"
+
+  }
+}

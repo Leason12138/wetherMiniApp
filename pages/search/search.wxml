@@ -7,5 +7,4 @@
 >
   <view slot="action" bind:tap="onClick">搜索</view>
 </van-search>
-  <NowWether sevendata='{{SearchSevenData.data}}' nowdata='{{SearchNowData.data}}'></NowWether>
 </view>
