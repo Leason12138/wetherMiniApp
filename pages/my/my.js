@@ -4,10 +4,6 @@ import Toast from '@vant/weapp/toast/toast'
 wx.cloud.init()
 const db = wx.cloud.database()
 const data = db.collection('weather_data')
-wx.login().then(res => {
-    console.log(res);
-    console.log(res.code);
-})
 Page({
 
     /**
@@ -21,18 +17,54 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: function(options) {
         this.get()
+    },
+    tickToggleFn(e) {
+        // console.log(e.currentTarget.dataset.id);
+        let target = this.data.showdata.filter(ele => {
+            return ele._id == e.currentTarget.dataset.id
+        })
+        if (target[0].done) {
+            data.doc(e.currentTarget.dataset.id).update({
+                // data 传入需要局部更新的数据
+                data: {
+                    // 表示将 done 字段置为 true
+                    done: false
+                },
+                success: () => {
+                    this.get()
+                }
+            })
+        } else {
+            data.doc(e.currentTarget.dataset.id).update({
+                // data 传入需要局部更新的数据
+                data: {
+                    // 表示将 done 字段置为 true
+                    done: true
+                },
+                success: () => {
+                    this.get()
+                }
+            })
+        }
+    },
+    tickDelFn(e) {
+        // console.log(e.currentTarget.dataset.id);
+        data.doc(e.currentTarget.dataset.id).remove({
+            success: () => {
+                this.get()
+            }
+        })
     },
     get() {
         let that = this
         data.get({
-            success: function (res) {
+            success: function(res) {
                 // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
                 that.setData({
-                    showdata: res.data
+                    showdata: res.data.reverse()
                 })
-                console.log(that.data.showdata);
             }
         })
     },
@@ -54,12 +86,12 @@ Page({
                     ],
                     done: false
                 },
-                success: function (res) {
-                    console.log(res);
+                success: function(res) {
                     that.setData({
                         textstr: ''
                     })
                     Toast.success('已储存');
+                    that.get()
                 }
             })
         }
@@ -72,57 +104,55 @@ Page({
                 // 表示将 done 字段置为 true
                 done: true
             },
-            success: function (res) {
-                console.log(res.data)
-            }
+            success: function(res) {}
         })
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {
+    onReady: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
+    onShow: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {
+    onHide: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function () {
+    onUnload: function() {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function () {
+    onPullDownRefresh: function() {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {
+    onReachBottom: function() {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
+    onShareAppMessage: function() {
 
     }
 })

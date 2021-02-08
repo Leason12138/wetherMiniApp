@@ -2,7 +2,6 @@
   <open-data type="userAvatarUrl"></open-data>
 </view>
 <open-data class="text" type="userNickName"></open-data>
-
 <van-cell-group>
   <van-field model:value="{{ textstr }}" center clearable placeholder="请输入内容" border="{{ false }}">
     <van-button bindtap="add" slot="button" size="small" type="primary">add</van-button>
@@ -10,24 +9,20 @@
 </van-cell-group>
 <!-- 轻提示 -->
 <van-toast id="van-toast" />
-
 <!-- showdata -->
 <view wx:for="{{showdata}}">
-
   <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}">
     <view slot="left">
-      <van-button type="info">
+      <van-button data-id="{{item._id}}" bindtap='tickToggleFn' type="info">
         <text wx:if="{{item.done}}">未做</text>
         <text wx:else>已做</text>
       </van-button>
     </view>
     <van-cell-group>
-      <van-cell title=" {{item.description}}" />
+      <van-cell title=" {{item.description}}  {{item.done}}" />
     </van-cell-group>
     <view slot="right">
-      <van-button type="danger">
-        删除
-      </van-button>
+      <van-button data-id="{{item._id}}" bindtap='tickDelFn' type="danger">删除</van-button>
     </view>
   </van-swipe-cell>
 </view>
