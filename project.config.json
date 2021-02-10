@@ -81,6 +81,7 @@
         {
           "name": "pages/map/map",
           "pathName": "pages/map/map",
+          "query": "",
           "scene": null
         }
       ]

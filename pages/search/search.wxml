@@ -5,6 +5,7 @@
   use-action-slot
   bind:search="onClick"
 >
+
   <view slot="action" bind:tap="onClick">搜索</view>
 </van-search>
 </view>

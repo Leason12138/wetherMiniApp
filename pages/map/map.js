@@ -1,23 +1,34 @@
 // 引入SDK核心类
+import Toast from '@vant/weapp/toast/toast'
 var QQMapWX = require('../../libs/qqmap-wx-jssdk');
 
 // 实例化API核心类
 var qqmapsdk = new QQMapWX({
     key: 'NXIBZ-MHDCJ-PEVFG-KHOEC-W2UGT-PFBYA' // 必填
 });
+let plugin = requirePlugin('routePlan');
+let key = 'NXIBZ-MHDCJ-PEVFG-KHOEC-W2UGT-PFBYA';  //使用在腾讯位置服务申请的key
+let referer = '查悦天气 ';   //调用插件的app的名称
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        value: '',
-        Neardata: {
-            NearFundata: [],
-            NearFooddata: [],
-            NearHoteldata: [],
-            NearSightsdata: []
+        endPoint: {  //终点
+            'name': '',
+            'latitude': 0,
+            'longitude': 0
         },
+        targetlocation: {},
+        sugbool: true,
+        value: '',
+        sugsearch: [],
+        NearFundata: [],
+        NearFooddata: [],
+        NearHoteldata: [],
+        NearSightsdata: [],
         latitude: 23.099994,
         longitude: 113.324520,
         markers: [{
@@ -25,23 +36,96 @@ Page({
             latitude: 23.099994,
             longitude: 113.324520,
             name: 'T.I.T 创意园'
-        }],
-        covers: [{
-            latitude: 23.099994,
-            longitude: 113.344520,
-            iconPath: '/image/location.png'
-        }, {
-            latitude: 23.099994,
-            longitude: 113.304520,
-            iconPath: '/image/location.png'
         }]
     },
+    totarget() {
+        if(this.data.endPoint.name==''){
+            Toast.fail('还没有定想要去的地方噢~');
+        }else{
+            wx.navigateTo({
+                url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + JSON.stringify(this.data.endPoint)
+            });
+        }
+      
+    },
 
+    onChange() {
+        this.setData({
+            sugbool: true
+        })
+        this.getSuggestion()
+    },
+    litap(e) {
+        console.log(e.target.dataset.it);
+        console.log(e.target.dataset.it.location.lat);
+        console.log(e.target.dataset.it.location.lng);
+        this.setData({
+            ['markers[0].id']: 1,
+            ['markers[0].latitude']: e.target.dataset.it.location.lat,
+            ['markers[0].longitude']: e.target.dataset.it.location.lng,
+            ['markers[0].name']: e.target.dataset.it.title,
+            ['endPoint.name']: e.target.dataset.it.title,
+            ['endPoint.latitude']: e.target.dataset.it.location.lat,
+            ['endPoint.longitude']: e.target.dataset.it.location.lng
+        })
+
+        this.moveToLocation(
+           e.target.dataset.it.location.lat,
+            e.target.dataset.it.location.lng
+        )
+        // this.setData({
+        //     markers: {
+        //         id: 1,
+        //         latitude: e.target.dataset.it.location.lat,
+        //         longitude: e.target.dataset.it.location.lng,
+        //         name: e.target.dataset.it.title
+        //     }
+        // })
+
+
+    },
+    inputFocus() {
+        this.setData({
+            sugbool: true
+        })
+    },
+    inputBlur() {
+        this.setData({
+            sugbool: false
+        })
+    },
+    getSuggestion() {
+        if (this.data.value == '') {
+            console.log('null');
+            this.setData({
+                sugbool: false
+            })
+            this.setData({
+                sugsearch: []
+            })
+
+        } else {
+            qqmapsdk.getSuggestion({
+                keyword: this.data.value,
+                success: (res) => {
+                    if (res.data[0] == null) {
+                        this.setData({
+                            sugsearch: [{ title: '无相关推荐' }]
+                        })
+                    } else {
+                        this.setData({
+                            sugsearch: res.data
+                        })
+                    }
+                }
+            })
+        }
+    },
     // 事件触发，调用接口
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function() {
+    onLoad: function () {
         // 实例化API核心类
         qqmapsdk = new QQMapWX({
             key: 'NXIBZ-MHDCJ-PEVFG-KHOEC-W2UGT-PFBYA'
@@ -55,7 +139,7 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
+    onReady: function () {
         this.mapCtx = wx.createMapContext('myMap')
         this.backUserNowPos()
         this.getNearFun()
@@ -64,7 +148,7 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
 
     },
     getNearFun() {
@@ -140,7 +224,7 @@ Page({
         })
     },
     //获取地图中间的左边
-    getCenterLocation: function() {
+    getCenterLocation: function () {
         this.mapCtx.getCenterLocation({
             success: (res) => {
 
@@ -162,35 +246,35 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 })

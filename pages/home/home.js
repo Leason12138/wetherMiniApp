@@ -22,10 +22,12 @@ Page({
             url: 'https://tianqiapi.com/api?version=v1&appid=55366145&appsecret=oy2iZT1d',
             success: function(res) {
                 let date = new Date().getTime()
-                that.data.SevenDayDate = res
+                that.setData({
+                    SevenDayDate: [date,res]
+                })
                 wx.setStorage({
                     key: 'SDD',
-                    data: [date, that.data.SevenDayDate]
+                    data: [that.data.SevenDayDate]
                 })
             }
         })
@@ -48,9 +50,12 @@ Page({
             success: function(res) {
                 let date = new Date().getTime()
                 that.data.NowWeatherData = res
+                that.setData({
+                    NowWeatherData: [date,res]
+                })
                 wx.setStorage({
                     key: 'NWD',
-                    data: [date, that.data.NowWeatherData]
+                    data: [that.data.NowWeatherData]
                 })
             }
         })
@@ -62,13 +67,14 @@ Page({
             success(res) {
                 console.log('nwds');
                 let date = new Date().getTime()
-                if (date - res.data[0] > 10800000) {
+                console.log(date - res.data[0][0],date - res.data[0][0] > 10800000);
+                if (date - res.data[0][0] > 10800000) {
                     console.log('nwdth');
                     // ajax 并执行 缓存操作
                     that.getNowWeatherData()
                 }
                 that.setData({
-                    NowWeatherData: res.data
+                    NowWeatherData: res.data[0]
                 })
 
             },
@@ -83,13 +89,13 @@ Page({
             success(res) {
                 console.log('sdds');
                 let date = new Date().getTime()
-                if (date - res.data[0] > 10800000) {
+                if (date - res.data[0][0] > 10800000) {
                     console.log('sddth');
                     // ajax 并执行 缓存操作
                     that.getSevenDayDate()
                 }
                 that.setData({
-                    SevenDayDate: res.data
+                    SevenDayDate: res.data[0]
                 })
             },
             fail() {
