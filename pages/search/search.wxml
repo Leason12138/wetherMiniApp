@@ -1,11 +1,16 @@
 <view class="search">
-  <van-search
-  model:value="{{ value }}"
-  placeholder="想要查找的市区天气"
-  use-action-slot
-  bind:search="onClick"
->
+	<van-search model:value="{{ value }}" placeholder="想要查找的市区天气" use-action-slot bind:search="onClick">
 
-  <view slot="action" bind:tap="onClick">搜索</view>
-</van-search>
+		<view slot="action" bind:tap="onClick">搜索</view>
+	</van-search>
+	<view class="txt">
+		热门搜索
+	</view>
+	<view class="hotsearchbox">
+		<view bindtap="chooceSearch" class=".view" wx:for="{{hotsearch}}" data-val="	{{item}}">
+			{{item}}
+		</view>
+
+	</view>
+
 </view>

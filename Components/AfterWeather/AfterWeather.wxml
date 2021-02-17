@@ -1,11 +1,22 @@
-<view>
-    <view>7dat prosee</view>
-<view wx:for="{{sevendata.data}}">
-    {{item.day}}
-    {{item.wea}}
-    {{item.tem1}}
-    {{item.tem2}}
-    {{item.win}}
-    {{item.win_speed}}
+<view class="AfterWeather">
+	<wxs src="./AfterWeather.wxs" module="tools" />
+    
+	<view class="item" wx:for="{{tools.threeday(sevendata.data)}}">
+		<view>
+			<wxs src="./AfterWeather.wxs" module="tools" />
+				<text class=" icon iconfont icon-{{item.wea_img}}"></text>
+			{{tools.day(item.day)}}·
+			{{item.wea}}
+			
+		</view>
+
+		<view>
+			{{item.tem1}} / {{item.tem2}}
+		</view>
+
+	</view>
+	<view>
+		<van-button class="btn" round color="#9ec4e4" type="primary"> 查看近7日天气 </van-button>
+	</view>
+
 </view>
-    </view>

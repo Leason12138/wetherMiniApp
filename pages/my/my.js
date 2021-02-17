@@ -19,6 +19,7 @@ Page({
      */
     onLoad: function(options) {
         this.get()
+        Toast.success('左滑已做，右滑删除');
     },
     tickToggleFn(e) {
         // console.log(e.currentTarget.dataset.id);

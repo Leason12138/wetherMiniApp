@@ -1,4 +1,6 @@
 {
-  "component": true,
-  "usingComponents": {"AfterWeather":"../AfterWeather/AfterWeather"}
+    "component": true,
+    "usingComponents": {
+        "AfterWeather": "../AfterWeather/AfterWeather"
+    }
 }

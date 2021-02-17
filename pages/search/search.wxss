@@ -1,1 +1,18 @@
-/* pages/search/search.wxss */
+.txt {
+  color: #666;
+  margin: 20rpx 30rpx;
+}
+.hotsearchbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0rpx;
+}
+.hotsearchbox view {
+  color: #666;
+  border: 1px solid #ddd;
+  padding: 5rpx 10rpx;
+  border-radius: 12.5rpx;
+  margin: 10rpx;
+}

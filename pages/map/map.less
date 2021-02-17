@@ -1,4 +1,10 @@
+@import "../../libs/iconfont.wxss";
+
 .mapmap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-self: center;
   .search {
     width: 100%;
     .sreachsug {
@@ -37,7 +43,7 @@
       width: 60rpx;
       height: 60rpx;
       display: flex;
-      border-radius:50%;
+      border-radius: 50%;
       position: absolute;
       align-items: center;
       justify-content: center;
@@ -69,6 +75,39 @@
         font-size: 24rpx;
         color: white;
         white-space: nowrap;
+      }
+    }
+  }
+  .txt {
+    font-style: italic;
+    font-weight: bold;
+    color: #4d7da5;
+    margin: 50rpx;
+    padding-left: 50rpx;
+  }
+  .sugplay {
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    width: 80vw;
+    .iconbox {
+      width: 14vw;
+      height: 18vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .icon {
+        color: #f7f8fa;
+        width: 14vw;
+        height: 14vw;
+        border-radius: 50%;
+        background-color: #6aa0cd;
+        text-align: center;
+        line-height: 14vw;
+        .iconfont {
+          font-size: 60rpx;
+        }
       }
     }
   }

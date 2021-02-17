@@ -6,24 +6,31 @@ Component({
     properties: {
         nowdata: Object,
         sevendata: Object,
-
+        title: String,
+        scrollTop: Number
     },
 
     /**
      * 组件的初始数据
      */
     data: {
+        show: false,
 
     },
-
-    /**
-     * 组件的方法列表
-     */
     methods: {
+        showPopup() {
+            console.log(1);
+            this.setData({ show: true });
+        },
+        onClose() {
+            this.setData({ show: false });
+        },
         intoseachpage() {
             wx.navigateTo({
                 url: '../../pages/search/search'
             })
         }
-    }
+
+    },
+
 })

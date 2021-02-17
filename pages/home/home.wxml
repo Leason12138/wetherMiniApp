@@ -1,3 +1,3 @@
 <view class="home">
-    <NowWether sevendata='{{SevenDayDate[1].data}}' nowdata='{{NowWeatherData[1].data}}'></NowWether>
+	<NowWether scrollTop='{{scrollTop}}' sevendata='{{SevenDayDate[1].data}}' title="{{titledata}}" nowdata='{{NowWeatherData[1].data}}'></NowWether>
 </view>
