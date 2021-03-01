@@ -15,9 +15,12 @@ Component({
      */
     data: {
         show: false,
-
+        updateTimeShow: true
     },
     methods: {
+        closeUpdateTime() {
+            this.setData({ updateTimeShow: false });
+        },
         showPopup() {
             console.log(1);
             this.setData({ show: true });

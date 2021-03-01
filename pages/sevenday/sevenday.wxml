@@ -1,0 +1,15 @@
+<!--pages/sevenday.wxml-->
+<view> {{sevendata.city}}</view>
+<view wx:for="{{sevendata.data}}">
+  <view>================</view>
+  <view>{{item.day}} </view>
+  <view>{{item.week}} </view>
+  <view>{{item.tem}} </view>
+  <view>{{item.tem1}} </view>
+  <view>{{item.tem2}} </view>
+  <view>{{item.win_speed}} </view>
+  <view>{{item.wea}} </view>
+  <text class=" icon iconfont icon-{{item.wea_img}}"></text>
+  <view>================</view>
+
+</view>

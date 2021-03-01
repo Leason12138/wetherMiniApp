@@ -85,6 +85,11 @@
           "pathName": "pages/map/map",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/sevenday/sevenday",
+          "pathName": "pages/sevenday/sevenday",
+          "scene": null
         }
       ]
     }

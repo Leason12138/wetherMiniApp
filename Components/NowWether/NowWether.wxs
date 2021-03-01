@@ -1,5 +1,0 @@
-var slice = function(val) {
-    return val.slice(3, 5)
-}
-
-module.exports.slice = slice;

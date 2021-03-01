@@ -1,6 +1,7 @@
 {
     "component": true,
     "usingComponents": {
-        "AfterWeather": "../AfterWeather/AfterWeather"
+        "AfterWeather": "../AfterWeather/AfterWeather",
+        "van-loading": "@vant/weapp/loading/index"
     }
 }

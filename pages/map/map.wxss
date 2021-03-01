@@ -63,13 +63,13 @@
 .icon-shachen:before {
   content: "\e78e";
 }
-.icon-lei:before {
-  content: "\e78f";
-}
 .icon-bingbao:before {
   content: "\e790";
 }
 .icon-yu:before {
+  content: "\e791";
+}
+.icon-lei:before {
   content: "\e791";
 }
 .icon-yin:before {
@@ -102,7 +102,7 @@
 }
 .mapmap .search .sreachsug li {
   height: 40rpx;
-  padding: 10rpx 30rpx;
+  padding: 30rpx 30rpx;
   white-space: nowrap;
   display: block;
   border-bottom: 1px solid #cecece;

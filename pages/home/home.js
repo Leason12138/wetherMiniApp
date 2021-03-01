@@ -103,6 +103,7 @@ Page({
         return wx.request({
             url: `https://tianqiapi.com/api?version=v6&appid=55366145&appsecret=oy2iZT1d&city=${k}`,
             success: function(res) {
+                console.log(res);
                 let date = new Date().getTime()
                 if (res.data.errcode) {
                     console.log('nwd获取数据不正常');

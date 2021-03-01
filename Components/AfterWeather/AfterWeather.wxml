@@ -1,22 +1,22 @@
 <view class="AfterWeather">
 	<wxs src="./AfterWeather.wxs" module="tools" />
-    
-	<view class="item" wx:for="{{tools.threeday(sevendata.data)}}">
+	<view class="item" wx:for="{{3}}">
 		<view>
 			<wxs src="./AfterWeather.wxs" module="tools" />
-				<text class=" icon iconfont icon-{{item.wea_img}}"></text>
-			{{tools.day(item.day)}}·
-			{{item.wea}}
-			
+			<text class=" icon iconfont icon-{{sevendata.data[item].wea_img}}"></text>
+			{{tools.day(sevendata.data[item].day)}} ·
+			{{sevendata.data[item].wea}}
 		</view>
-
 		<view>
-			{{item.tem1}} / {{item.tem2}}
+			{{sevendata.data[item].tem1}} / {{sevendata.data[item].tem2}}
 		</view>
 
 	</view>
+	<view class="br"></view>
+
 	<view>
-		<van-button class="btn" round color="#9ec4e4" type="primary"> 查看近7日天气 </van-button>
+		<button bindtap="toSevenDay" class="btn"> 查看近7日天气 </button>
 	</view>
+	<view class="br"></view>
 
 </view>

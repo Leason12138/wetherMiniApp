@@ -7,6 +7,7 @@
   flex-direction: column;
   align-items: center;
 
+  
   .now {
     display: flex;
     flex-direction: column;
@@ -15,6 +16,10 @@
     width: 100vw;
     padding-top: 80rpx;
     background: linear-gradient(to bottom, #649cca, #7badd6);
+    .update-time{
+      color: #89bce6;
+      
+    }
 
     .tapbar {
       width: 100vw;
@@ -91,11 +96,11 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 20vw;
+      width: 30vw;
       height: 300rpx;
       border-right: 1px solid #6595bd;
       view {
-        padding: 10rpx 0;
+        padding: 6rpx 0;
       }
       .day {
         white-space: nowrap;
@@ -150,18 +155,31 @@
 .now-wether-loading {
   width: 100vw;
   height: 100vh;
-  position: relative;
-    background: linear-gradient(to bottom, #73a4cc, #7badd6);
+  background: linear-gradient(to bottom, #73a4cc, #7badd6);
   color: #fff;
   .title {
-   
-    position: absolute;
-    right: 0;
-    left: 80rpx;
-    top: 230rpx;
-    margin:0 auto ;
+    height: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 40rpx;
+    .title {
+      height: 80rpx;
+      margin: 20rpx;
+    }
+    .picttp {
+      padding-left: 20rpx;
+      width: 250rpx;
+      height: 180rpx;
+    }
+  }
+  .loading {
     width: 250rpx;
-    line-height: 105rpx;
-    font-size: 100rpx;
+    height: 150rpx;
+    display: flex;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
   }
 }

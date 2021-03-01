@@ -12,6 +12,9 @@
 				</view>
 			</view>
 		</view>
+		<view wx:if="{{updateTimeShow}}" bindtap='closeUpdateTime' class="update-time">更新时间：{{nowdata.update_time}}
+			<van-icon class="close" name="clear" />
+		</view>
 
 
 		<view class="showface" style="opacity:{{(180-scrollTop)/180}} ;/* transform:translateX({{scrollTop/10}}rpx);*/">
@@ -49,11 +52,10 @@
 	<view class="future">
 		<view wx:for="{{sevendata.data[0].hours}}" wx:key="index">
 			<view class="futurebox">
-				<wxs src="./NowWether.wxs" module="tools" />
-				<view class="day">{{tools.slice(item.day)}}:00</view>
+				<view class="hours">{{item.hours}}</view>
 				<view class="wea">{{item.wea}}</view>
 				<view class=" iconfont icon-{{item.wea_img}}"></view>
-				<view class="tem">{{item.tem}}</view>
+				<view class="tem">{{item.tem}}°C</view>
 				<view>
 					<text class=" iconfont icon-fengxiang"></text>
 					<text>{{item.win_speed}}</text>
@@ -63,8 +65,7 @@
 		</view>
 		<view wx:for="{{sevendata.data[1].hours}}" wx:key="index">
 			<view class="futurebox">
-				<wxs src="./NowWether.wxs" module="tools" />
-				<view class="day">{{tools.slice(item.day)}}:00</view>
+				<view class="hours">{{item.hours}}</view>
 				<view class="wea">{{item.wea}}</view>
 				<view class=" iconfont icon-{{item.wea_img}}"></view>
 				<view class="tem">{{item.tem}}</view>
@@ -151,16 +152,16 @@
 
 	<view class="title">
 		<view>
-			查悦
+			<image class="picttp" src="../../image/ttp.png" />
+			<text class="title">
+			查悦天气
+		</text>
+			<view class="loading">
+				<van-loading color="#ffffff" />
+			</view>
+
+
+
 		</view>
-		<view>
-			天气
-		</view>
-		<view>
-			
-		</view>
-		  
 	</view>
-
-
 </view>

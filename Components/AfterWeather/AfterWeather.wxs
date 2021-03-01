@@ -1,12 +1,6 @@
 var day = function(val) {
-    var a = val.slice(4, 6)
+    var a = val.slice(4, 7)
     return a
 }
 module.exports.day = day;
 
-var threeday = function(val) {
-    var b = val.slice(0, 3)
-    return b
-}
-
-module.exports.threeday = threeday;

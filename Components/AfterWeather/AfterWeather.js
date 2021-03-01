@@ -18,6 +18,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    toSevenDay(){
+      wx.navigateTo({
+        url: '../../pages/sevenday/sevenday',
+        success: (res)=> {
+          // 通过eventChannel向被打开页面传送数据
+          console.log(this.data.sevendata );
+          res.eventChannel.emit('acceptDataFromOpenerPage', { data: this.data.sevendata })
+        }
+    })
+    }
   }
 })
