@@ -66,7 +66,6 @@ Page({
         this.getSuggestion()
     },
     litap(e) {
-
         this.setData({
             value: e.target.dataset.it.title,
             ['markers[0].id']: 1,

@@ -3,14 +3,19 @@
 
 		<view slot="action" bind:tap="onClick">搜索</view>
 	</van-search>
-	<view class="txt">
+
+<view class="qsearchbox">
+		<view class="txt">
 		热门搜索
 	</view>
 	<view class="hotsearchbox">
+
 		<view bindtap="chooceSearch" class=".view" wx:for="{{hotsearch}}" data-val="	{{item}}">
 			{{item}}
 		</view>
 
 	</view>
+</view>
+  
 
 </view>

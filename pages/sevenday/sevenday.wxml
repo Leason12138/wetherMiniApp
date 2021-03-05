@@ -1,15 +1,45 @@
-<!--pages/sevenday.wxml-->
-<view> {{sevendata.city}}</view>
-<view wx:for="{{sevendata.data}}">
-  <view>================</view>
-  <view>{{item.day}} </view>
-  <view>{{item.week}} </view>
-  <view>{{item.tem}} </view>
-  <view>{{item.tem1}} </view>
-  <view>{{item.tem2}} </view>
-  <view>{{item.win_speed}} </view>
-  <view>{{item.wea}} </view>
-  <text class=" icon iconfont icon-{{item.wea_img}}"></text>
-  <view>================</view>
+<view class="sevenday">
 
+	<view class='city'> {{sevendata.city}}</view>
+
+	<ul class='itemlist'>
+		<!--pages/sevenday.wxml-->
+		<li class='item' wx:key="{{item.date}}" wx:for="{{sevendata.data}}">
+			<view class="week">
+				<view class="weekday">{{item.week}} </view>
+				<view wx:if="{{item.win[0]==item.win[1]}}">
+					<text >{{item.win[0]}}</text>
+				</view>
+				<view wx:else>
+					<text >{{item.win[0]}} 转 </text>
+					<text >{{item.win[1]}} </text>
+				</view>
+
+				<view class='win'>
+
+					<text class=" winicon iconfont icon-fengxiang"></text>
+					<view> {{item.win_speed}} </view>
+				</view>
+
+
+			</view>
+
+			<view class='mid'>
+				<text class=" icon iconfont icon-{{item.wea_img}}">
+			</text>
+				<text  class='wea'>{{item.wea}}</text>
+			</view>
+
+
+			<view class='temp'>
+				<view class="tem"> {{item.tem}} </view>
+				<view class='teminto'>
+				<text>{{item.tem2}} </text> ~ <text> {{item.tem1}}</text>
+				</view>
+
+			</view>
+
+
+		</li>
+	</ul>
 </view>

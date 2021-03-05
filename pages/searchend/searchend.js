@@ -45,7 +45,6 @@ Page({
       url: `https://tianqiapi.com/api?version=v6&appid=55366145&appsecret=oy2iZT1d&city=${add}`,
       success: function (res) {
         console.log(res);
-
         that.setData({
           NowWeatherData: res
         })

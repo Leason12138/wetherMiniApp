@@ -1,18 +1,31 @@
-.txt{
+.qsearchbox {
+  margin-top: 100rpx;
+  .txt {
     color: #666;
-    margin:20rpx 30rpx;
-}
-.hotsearchbox {
+    margin: 20rpx 30rpx;
+  }
+  .hotsearchbox {
+    margin-top: 60rpx;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding: 0rpx;
-    view{
-        color: #666;
-        border: 1px solid #ddd;
-        padding:5rpx 10rpx;
-        border-radius: 12.5rpx;
-        margin: 10rpx;
+    view {
+      width: 18vw;
+      height: 8vw;
+      line-height: 8vw;
+      text-align: center;
+      color: #666;
+      background-color: #f8f8f8;
+      padding: 5rpx 10rpx;
+      border-radius: 12.5rpx;
+      margin: 20rpx 10rpx;
+      &:active {
+        background-color: #649cca;
+        color: #fff;
+        border: 1px solid rgb(255, 255, 255);
+      }
     }
+  }
 }
