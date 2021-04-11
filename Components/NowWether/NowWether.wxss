@@ -238,6 +238,11 @@
   height: 80rpx;
   margin: 20rpx;
 }
+.now-wether-loading .title .bugtip {
+  font-size: 20px;
+  text-align: center;
+  color: #ffffff;
+}
 .now-wether-loading .title .picttp {
   padding-left: 20rpx;
   width: 250rpx;

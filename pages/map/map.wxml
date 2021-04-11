@@ -1,10 +1,10 @@
 <view class="mapmap" hover-class="none" hover-stop-propagation="false">
 	<!-- 地图容器 -->
 	<view class="search">
-		<van-search bindfocus="inputFocus" bindblur="inputBlur" model:value="{{ value }}" placeholder="请输入搜索关键词" bind:change="onChange"></van-search>
+		<van-search bindfocus="inputFocus" model:value="{{ value }}" placeholder="请输入搜索关键词" bind:change="onChange"></van-search>
 		<ul wx:if="{{sugsearch[0] && sugbool}}" class="sreachsug">
 			<!-- <ul wx:if="{{sugsearch[0] && sugbool}}" class="sreachsug"> -->
-			<li data-it="{{item}}" bindtap="litap" wx:key="index" wx:for="{{sugsearch}}">
+			<li data-it="{{item}}" bindtouchstart="litouchstart" bindtap="litap" wx:key="index" wx:for="{{sugsearch}}">
 				<text class='left' data-it="{{item}}">
 				{{item.title}}
 				<text class='tip'>{{item.category}}</text>
@@ -14,6 +14,7 @@
 
 				</text><text wx:else> {{item.city}}</text>
 			</li>
+			<li class="liend">无更多相关</li>
 		</ul>
 	</view>
 	<van-toast id="van-toast" />

@@ -25,7 +25,8 @@
 				</van-button>
 			</view>
 			<van-cell-group>
-				<van-cell class="{{item.done}}" title=" {{item.description}} " />
+				<van-cell class="{{item.done}}" value=" {{item.timer}}" title=" {{item.description}} " />
+		
 			</van-cell-group>
 			<view slot="right">
 				<van-button data-id="{{item._id}}" bindtap='tickDelFn' type="danger">删除</van-button>

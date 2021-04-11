@@ -108,9 +108,21 @@
   padding: 30rpx 30rpx;
   white-space: nowrap;
 }
+.mapmap .search .sreachsug li .left {
+  width: 55vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 .mapmap .search .sreachsug li .left .tip {
   font-size: 20rpx;
   color: #aaaaaa;
+}
+.mapmap .search .sreachsug .liend {
+  color: #999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .mapmap .mapinside {
   width: 100%;

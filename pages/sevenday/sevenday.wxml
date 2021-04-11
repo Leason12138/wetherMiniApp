@@ -1,5 +1,14 @@
 <view class="sevenday">
+	<svg id="svg" viewBox="0 0 200 100">
+        <g transform="translate(0,100) scale(1,-1)">
+            <path fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="line one"
+                d="M0,120 40,40 60,20 80,40" />
+            <!-- x,y -->
+            <path fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="line two"
+                d="M0,120 40,40 60,20 80,40" />
+        </g>
 
+    </svg>
 	<view class='city'> {{sevendata.city}}</view>
 
 	<ul class='itemlist'>
@@ -23,7 +32,7 @@
 
 
 			</view>
-
+		
 			<view class='mid'>
 				<text class=" icon iconfont icon-{{item.wea_img}}">
 			</text>

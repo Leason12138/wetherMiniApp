@@ -23,9 +23,9 @@
 				<text class="tempc">°c</text>
 			</view>
 			<view class="minmaxtemp">
-				<text >{{nowdata.tem2}}°</text>
+				<text>{{nowdata.tem2}}°</text>
 				<text>~</text>
-				<text >{{nowdata.tem1}}°</text>
+				<text>{{nowdata.tem1}}°</text>
 			</view>
 			<view>{{nowdata.wea}}</view>
 
@@ -35,7 +35,7 @@
 
 		<view class="nowair">
 			<text><text class="   icon iconfont icon-kongqizhiliangjiance"></text>空气{{nowdata.air_level}}</text>
-			<text> <text class= " icon iconfont icon-fengxiang"></text>{{nowdata.win}} {{nowdata.win_speed}}</text>
+			<text> <text class=" icon iconfont icon-fengxiang"></text>{{nowdata.win}} {{nowdata.win_speed}}</text>
 			<!-- <text></text>
 			<text>{{nowdata.humidity}}</text>
 			<text>{{nowdata.pressure}}</text> -->
@@ -151,17 +151,23 @@
 
 
 	<view class="title">
+	
 		<view>
 			<image class="picttp" src="../../image/ttp.png" />
 			<text class="title">
-			查悦天气
-		</text>
+				查悦天气
+			</text>
 			<view class="loading">
 				<van-loading color="#ffffff" />
 			</view>
 
 
 
+		</view>
+		<view class="bugtip" style="opacity:{{posOrLanBug}}">
+			<view> 请检查网络或是否打开定位
+			</view>
+			<view> 确认后重新打开小程序</view>
 		</view>
 	</view>
 </view>

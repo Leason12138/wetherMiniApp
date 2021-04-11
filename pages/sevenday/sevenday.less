@@ -1,4 +1,5 @@
 @import "../../libs/iconfont.wxss";
+
 .sevenday {
   background: linear-gradient(to bottom, #649cca, #7badd6);
   color: #f0ebe4;
@@ -12,7 +13,7 @@
   }
   .item {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
   padding: 20rpx 0rpx ;
     .week {
@@ -22,7 +23,7 @@
       justify-content: space-between;
       align-items: center;
       .weekday {
-        font-size: 80rpx;
+        font-size: 55rpx;
       }
       .win {
         display: flex;
@@ -43,6 +44,7 @@
       }
       .wea {
         height: auto;
+        white-space: nowrap; 
       }
     }
     .temp {

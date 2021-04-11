@@ -56,7 +56,7 @@ Page({
             sugsearch: this.data.Neardata[Number(a.target.dataset.idx)],
             sugbool: true
         })
-
+        console.log(this.data.sugbool);
 
     },
     onChange() {
@@ -75,24 +75,31 @@ Page({
             ['endPoint.name']: e.target.dataset.it.title,
             ['endPoint.latitude']: e.target.dataset.it.location.lat,
             ['endPoint.longitude']: e.target.dataset.it.location.lng,
-            sugbool: false
-        })
+            sugbool:false
 
+        })
         this.moveToLocation(
-                e.target.dataset.it.location.lat,
-                e.target.dataset.it.location.lng
-            )
-            // this.setData({
-            //     markers: {
-            //         id: 1,
-            //         latitude: e.target.dataset.it.location.lat,
-            //         longitude: e.target.dataset.it.location.lng,
-            //         name: e.target.dataset.it.title
-            //     }
-            // })
+            e.target.dataset.it.location.lat,
+            e.target.dataset.it.location.lng
+        )
+        // this.setData({
+        //     markers: {
+        //         id: 1,
+        //         latitude: e.target.dataset.it.location.lat,
+        //         longitude: e.target.dataset.it.location.lng,
+        //         name: e.target.dataset.it.title
+        //     }
+        // })
 
 
     },
+    litouchstart(){
+        this.setData({
+          sugbool:true
+        })
+     },
+   
+
     inputFocus() {
         this.setData({
             sugbool: true
@@ -134,7 +141,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function() {
+    onLoad: function () {
         // 实例化API核心类
         qqmapsdk = new QQMapWX({
             key: 'NXIBZ-MHDCJ-PEVFG-KHOEC-W2UGT-PFBYA'
@@ -148,7 +155,7 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
+    onReady: function () {
         this.mapCtx = wx.createMapContext('myMap')
         this.backUserNowPos()
         this.getNearFun()
@@ -157,7 +164,7 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
 
     },
     getNearFun() {
@@ -230,7 +237,7 @@ Page({
         })
     },
     //获取地图中间的左边
-    getCenterLocation: function() {
+    getCenterLocation: function () {
         this.mapCtx.getCenterLocation({
             success: (res) => {
 
@@ -252,35 +259,35 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 })

@@ -15,7 +15,19 @@ Component({
      */
     data: {
         show: false,
-        updateTimeShow: true
+        updateTimeShow: true,
+        posOrLanBug: 0
+    },
+    lifetimes: {
+        ready: function () {
+            var that = this
+            // 在组件在视图层布局完成后执行
+            setTimeout(function () {
+                that.setData({
+                    posOrLanBug: 1
+                })
+            }, 5000)()
+        },
     },
     methods: {
         closeUpdateTime() {
